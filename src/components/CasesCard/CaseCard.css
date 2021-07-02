@@ -1,0 +1,24 @@
+
+.casesCard {
+    box-sizing: border-box;
+    width: 100%;
+    height: 150px;
+    color: #4E5B7B;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .caseTitle, .caseData{
+      padding:10px;
+  }
+
+
+  
+ 
+  
+
+

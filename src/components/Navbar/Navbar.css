@@ -1,0 +1,13 @@
+
+
+.navcontainer{
+    height:50px;
+    background-color: #BCE4E3;
+    display: flex;
+    align-items: center;
+    
+}
+
+.navbar{
+    padding: 10px 0px;
+    }
