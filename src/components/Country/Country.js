@@ -10,7 +10,6 @@ import "./Country.css";
 function Country() {
   const [countryData, setCountryData] = useState([]);
   const [countryName, setCountryName] = useState("Select");
-  const [selected, setSelected] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const getData = () => {
@@ -25,10 +24,7 @@ function Country() {
     margin: 0 auto;
   `;
 
-  const handleChange = (e) => {
-    console.log(e.target.value);
-    setCountryName(e.target.value);
-  };
+
 
   let options = countryData.map((data) => {
     return { value: data.country, label: <><img className="flags" src={data.countryInfo.flag} alt=""/> {data.country} </>};
