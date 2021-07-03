@@ -3,7 +3,7 @@ import React from 'react'
 import {  Doughnut } from 'react-chartjs-2';
 
 
-function Chart({cases, deaths, recovered,day}) {
+function PieChart({cases, deaths, recovered,day,title}) {
 
     const value = {
         labels: [`${day} Cases`, `${day} Deaths`, `${day} Recovered `],
@@ -24,6 +24,7 @@ function Chart({cases, deaths, recovered,day}) {
     };
         
   const options={
+   
     plugins: {
         legend: {
             display: true,
@@ -35,7 +36,15 @@ function Chart({cases, deaths, recovered,day}) {
                   size:'16px'
                 }
             }
-        }
+        },
+        title: {
+          display: true,
+          text: `COVID-19 data for ${title}`,
+          font:{
+            family:'josefin sans',
+            size:'25px'
+          }
+        },
     }
   }
     
@@ -48,4 +57,7 @@ function Chart({cases, deaths, recovered,day}) {
     )
 }
 
-export default Chart
+export default PieChart
+
+
+

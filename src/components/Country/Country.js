@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getCasesByCountry } from "../../service/api";
 import { CasesCard } from "../CasesCard/CasesCard";
-import Chart from "../Chart/Chart";
+import  PieChart from "../Chart/PieChart";
 import { BeatLoader } from "react-spinners";
 import { css } from "@emotion/react";
 import Select from "react-select";
@@ -63,18 +63,6 @@ function Country() {
         </div>
       ) : (
         <>
-          {/* <select onChange={handleChange}>
-                    <option >Select a Country</option>
-                {countryData ? 
-                <>
-                    {countryData.map(data => (
-                        
-                        <option key={data.country} > {data.country} </option>
-                        
-                    ))}
-                
-                </>:<><option disabled >Country Names</option></>}
-            </select> */}
           <Select
             value={countryName}
             onChange={handleSelect}
@@ -90,13 +78,14 @@ function Country() {
                     (country) => country.country === `${countryName.value}`
                   )
                   .map((selected) => (
-                    <div className="initialData" key={countryName}>
+                    <div className="initialData" key={countryName.value}>
                       <div className="chart">
-                        <Chart
+                        <PieChart
                           cases={selected.todayCases}
                           deaths={selected.todayDeaths}
                           recovered={selected.todayRecovered}
                           day={"Yesterdays"}
+                          title={countryName.value}
                         />
                       </div>
                       <div className="otherData">

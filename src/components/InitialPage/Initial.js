@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getCases } from "../../service/api";
 import {CasesCard} from "../CasesCard/CasesCard";
-import Chart from "../Chart/Chart";
+import PieChart from "../Chart/PieChart";
 import "./initial.css";
 import {BeatLoader} from"react-spinners";
 import { css } from "@emotion/react";
@@ -53,11 +53,12 @@ function Initial(props) {
               
                
               <div className="chart">
-                <Chart
+                <PieChart
                   cases={cov.todayCases}
                   deaths={cov.todayDeaths}
                   recovered={cov.todayRecovered}
                   day={"Todays"}
+                  title={"Today"}
                 />
               </div>
               <div className="otherData">

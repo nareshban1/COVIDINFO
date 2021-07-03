@@ -4,7 +4,7 @@ function Footer() {
     return (
         <div className="footer">
             <div className="container footercontent">
-                <p>Used desease.sh API</p><br/>
+                <p>Used disease.sh API</p><br/>
                 <p>Naresh Ban</p>
             </div>
             
