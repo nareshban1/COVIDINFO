@@ -6,11 +6,17 @@ import { BeatLoader } from "react-spinners";
 import { css } from "@emotion/react";
 import Select from "react-select";
 import "./Country.css";
+import LineChart from "../Chart/LineChart";
+import { getHistoryCountry } from '../../service/api';
+import Historical from "../Historical/Historical";
+
 
 function Country() {
   const [countryData, setCountryData] = useState([]);
   const [countryName, setCountryName] = useState("Select");
   const [loading, setLoading] = useState(true);
+ 
+
 
   const getData = () => {
     getCasesByCountry().then((data) => {
@@ -24,6 +30,7 @@ function Country() {
     margin: 0 auto;
   `;
 
+ 
 
 
   let options = countryData.map((data) => {
@@ -77,7 +84,7 @@ function Country() {
                   .filter(
                     (country) => country.country === `${countryName.value}`
                   )
-                  .map((selected) => (
+                  .map((selected) => (<>
                     <div className="initialData" key={countryName.value}>
                       <div className="chart">
                         <PieChart
@@ -112,7 +119,10 @@ function Country() {
                           />
                         </div>
                       </div>
+                      
                     </div>
+                    <Historical countryName={countryName.value}/>
+                    </>
                   ))}
               </>
             ) : (

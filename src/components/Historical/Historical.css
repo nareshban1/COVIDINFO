@@ -1,10 +1,35 @@
 .inputDays{
-    height:25px;
-   margin-left: 10px;;
+    height: 25px;
+    margin-left: 10px;
+    font-family:'Josefin Sans';
+    font-size: 16px;
+    border: 1px solid #B9B2DC;
 
 }
 
 
 .inputDiv{
-    float: right;
+    height:25px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.Setbtn{
+    margin-left:5px;
+    height: 30px;
+    padding:5px 10px;
+    font-family:'Josefin Sans';
+    font-size: 16px;
+    color:white;
+    background-color:#B9B2DC ;
+    border: 1px solid #B9B2DC;
+    transition: 0.3s ease-in-out;
+}
+
+
+.Setbtn:hover{
+    color:#B9B2DC ;
+    background-color:white;
+    border: 1px solid #B9B2DC;
 }

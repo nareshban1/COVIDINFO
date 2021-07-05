@@ -3,6 +3,7 @@ import { Line } from "react-chartjs-2";
 
 function LineChart({dataset}) {
 
+
     const [cases, setCases] = useState([])
     const [deaths, setDeaths] = useState([])
     const [recovered, setRecovered] = useState([])
@@ -10,10 +11,10 @@ function LineChart({dataset}) {
     let viewlabeled =['Cases', 'Deaths', 'Recovered']
     let values =[];
     let date =[];
+    
 
 
     const buildChartData = (data, casesType) => {
-        
         const chartData = [];
         let lastDataPoint;
     
@@ -33,47 +34,26 @@ function LineChart({dataset}) {
         labeled.push(data[0]);
         values.push(data[1]);  
     })
+
     Object.entries(values[0]).map((data)=>{
-        date.push(data[0]);
-         
+        date.push(data[0]);   
     })
     
    
 
-    const getCases = () =>{
-        let chartData = buildChartData(dataset,labeled[0]);
+    const getData = (dataset, label,array) => {
+      let chartData = buildChartData(dataset,label);
         chartData.map(data => {
-            cases.push(data.value);
-            
-            
-            
+            array.push(data.value);
         });
-    }
-    const getDeaths = () =>{
-        let chartData = buildChartData(dataset,labeled[1]);
-        chartData.map(data => {
-            deaths.push(data.value);
-            
-            
-        });
-       
-
     }
 
-    const getRecovered = () =>{
-        let chartData = buildChartData(dataset,labeled[2]);
-        chartData.map(data => {
-            recovered.push(data.value);
-            
-            
-        });
-        
-    }
+
 
     useEffect(() => {
-        getCases();
-        getDeaths();
-        getRecovered();
+        getData(dataset,labeled[0],cases);
+        getData(dataset,labeled[1],deaths);
+        getData(dataset,labeled[2],recovered);
     }, [date])
 
 
@@ -109,6 +89,7 @@ function LineChart({dataset}) {
   const options = {
     responsive: true,
     plugins: {
+      
       legend: {
         position: 'top',
         labels: {

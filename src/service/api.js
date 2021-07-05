@@ -16,3 +16,8 @@ export const getHistory= (days)=>{
     .then((response) => response.json())
 }
 
+export const getHistoryCountry= (days,country)=>{
+    return fetch(`https://disease.sh/v3/covid-19/historical/${country}?lastdays=${days}`)
+    .then((response) => response.json())
+}
+
